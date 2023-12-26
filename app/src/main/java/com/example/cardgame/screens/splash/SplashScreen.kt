@@ -3,9 +3,11 @@ package com.example.cardgame.screens.splash
 
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
@@ -15,9 +17,12 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import com.example.cardgame.R
 import com.example.cardgame.screens.navigation.Screen
 import com.example.cardgame.ui.theme.PrimaryLight
 import com.example.cardgame.ui.theme.myColors
@@ -52,14 +57,11 @@ fun Splash(alpha:Float){
             .fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
-        Icon(
-            modifier = Modifier
-                .size(120.dp)
-                .alpha(alpha = alpha),
-            imageVector = Icons.Filled.AccountCircle,
-            contentDescription = "Logo Icon",
-            tint = PrimaryLight
-//            MaterialTheme.colors.primary
+        Image(
+            painter = painterResource(R.drawable.baseline_filter_none_24),
+            contentDescription = "",
+            contentScale = ContentScale.Crop,
+            modifier = Modifier.size(200.dp).padding(30.dp)
         )
     }
 }

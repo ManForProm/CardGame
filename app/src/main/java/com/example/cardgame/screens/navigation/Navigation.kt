@@ -24,6 +24,7 @@ import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun AppNavHost(
+    userScore:Int = 100,
     navController: NavHostController = rememberAnimatedNavController(),
     startDestination: String = Screen.Splash.route
     ){
@@ -38,6 +39,7 @@ fun AppNavHost(
         ) {
             MainScreen(
                 navController,
+                userScore = userScore
             )
             changeColorBars(color = MaterialTheme.myColors.background)
         }
@@ -50,7 +52,7 @@ fun AppNavHost(
         composable(
             Screen.GameScene.route,
             enterTransition = { fadeIn(animationSpec = tween(500)) }) {
-            GameScene(navController)
+            GameScene(navController, userScore = userScore)
             changeColorBars(color = MaterialTheme.myColors.background)
         }
         composable(
